@@ -13,6 +13,7 @@
                 <li><a href="{{ url('/') }}">Home</a></li>
                 <li><a href="{{ url('/about') }}">About Us</a></li>
                 <li><a href="{{ url('/contact') }}">Contact Us</a></li>
+                <li><a href="{{ url('/jobs') }}">Jobs</a></li>
             </ul>
         </div>
 

@@ -14,7 +14,7 @@
 <body>
 @include("includes.header")
     <div class="container">
-        @yield('content')
+    @yield("content")
     </div>
     <script src="{{ asset('js/index.js') }}"></script>
 </body>

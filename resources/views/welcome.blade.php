@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
     <div class="main">
         @include("includes.sidebar")
 
@@ -11,5 +10,4 @@
         </div>
 
     </div>
-
 @endsection

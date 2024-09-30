@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Job extends Model
 {
     use HasFactory;
+    protected $table = "job_listing";
 
     protected $fillable = [
         'title', 
@@ -25,4 +26,10 @@ class Job extends Model
         'application_start_date' => 'date',
         'application_end_date' => 'date',
     ];
+
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
+    }
 }

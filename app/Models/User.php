@@ -23,4 +23,9 @@ class User extends Model
     protected $casts = [
         'preference' => 'array', // Cast 'preference' field as array
     ];
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
+    }
 }

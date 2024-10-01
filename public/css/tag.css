@@ -1,0 +1,161 @@
+/* Styling for the All Tags page */
+.all-tags-heading {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Tag Search Form */
+.tag-search-form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.tag-search-input {
+    width: 50%;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.tag-search-button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 1rem;
+    margin-left: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.tag-search-button:hover {
+    background-color: #0056b3;
+}
+
+/* Tag List */
+.tag-all-list {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.tag-list-item {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px 15px;
+    margin: 10px;
+    transition: all 0.3s ease;
+}
+
+.tag-list-item:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.tag-link {
+    text-decoration: none;
+    color: inherit;
+    font-size: 1.2rem;
+}
+
+.tag-link:hover {
+    color: white;
+}
+
+.no-tag-message {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #ff0000;
+    margin-top: 20px;
+}
+
+
+
+
+
+
+
+/* Tag Page Unique Styles */
+.tag-page-container {
+    padding: 2rem;
+    background-color: #f4f7fa; /* Light background to differentiate the tag page */
+}
+
+/* Tag Name Heading */
+.tag-name {
+    font-size: 2.5rem;
+    color: #2c3e50; /* Darker shade for tag name */
+    font-weight: 700;
+    margin-bottom: 2rem;
+    /* text-align: center; */
+}
+
+/* Section Styling */
+.tag-section {
+    margin-bottom: 3rem;
+}
+
+/* Section Heading */
+.section-heading {
+    font-size: 1.75rem;
+    color: #34495e;
+    font-weight: 600;
+    border-bottom: 2px solid #3498db; /* Light blue underline */
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+}
+
+/* Tag List Styling */
+.tag-list {
+    list-style: none;
+    padding: 0;
+}
+
+.tag-list-item {
+    background-color: #ffffff;
+    color: #555;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.tag-list-item:hover {
+    background-color: #00abd5;
+    transform: translateY(-2px); /* Subtle hover effect */
+}
+
+/* No Data Message */
+.no-data-message {
+    font-size: 1.1rem;
+    color: #7f8c8d;
+    text-align: center;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+}
+
+/* Media Query for Mobile Responsiveness */
+@media (max-width: 768px) {
+    .tag-name {
+        font-size: 2rem;
+    }
+
+    .section-heading {
+        font-size: 1.5rem;
+    }
+
+    .tag-list-item {
+        font-size: 1rem;
+    }
+}

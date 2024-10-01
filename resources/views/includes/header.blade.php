@@ -13,7 +13,7 @@
                 <li><a href="{{ url('/') }}">Home</a></li>
                 <li><a href="{{ url('/about') }}">About Us</a></li>
                 <li><a href="{{ url('/contact') }}">Contact Us</a></li>
-
+                
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle">Menu </span></a>
                     <ul class="dropdown-menu">
@@ -22,6 +22,7 @@
                         <li><a href="{{ url('/results') }}">Results</a></li>
                     </ul>
                 </li>
+                <li><a href="{{ url('/tags') }}">Search</a></li>
             </ul>
         </div>
 

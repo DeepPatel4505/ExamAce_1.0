@@ -10,6 +10,7 @@
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
     <link href="{{ asset('css/jobs.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/tag.css') }}" rel="stylesheet">
 </head>
 
 <body>

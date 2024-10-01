@@ -3,7 +3,7 @@
 @section('content')
 <div class="job-search">
     <form method="GET" action="/exams">
-        <input type="text" name="search" placeholder="Search jobs..." value="{{ request()->search }}">
+        <input type="text" name="search" placeholder="Search exams..." value="{{ request()->search }}">
         <select name="job_type">
             <option value="">All Types</option>
             <option value="Central_Govt" {{ request()->job_type == 'Central_Govt' ? 'selected' : '' }}>Central Govt</option>

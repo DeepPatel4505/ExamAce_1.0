@@ -1,6 +1,6 @@
 <header>
     <nav class="navbar">
-        <a class="navbar-logo" href="{{ url('/') }}" >
+        <a class="navbar-logo" href="{{ url('/') }}">
             Exam<span>Ace</span>
         </a>
 
@@ -13,7 +13,15 @@
                 <li><a href="{{ url('/') }}">Home</a></li>
                 <li><a href="{{ url('/about') }}">About Us</a></li>
                 <li><a href="{{ url('/contact') }}">Contact Us</a></li>
-                <li><a href="{{ url('/jobs') }}">Jobs</a></li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Menu </span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{ url('/jobs') }}">Jobs</a></li>
+                        <li><a href="{{ url('/exams') }}">Exams</a></li>
+                        <li><a href="{{ url('/results') }}">Results</a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
 

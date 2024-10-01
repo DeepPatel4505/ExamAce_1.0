@@ -15,6 +15,10 @@ class Exam extends Model
         'qualification'
     ];
 
+    protected $casts = [
+        'exam_date' => 'datetime',
+    ];
+
     public function tags()
     {
         return $this->belongsToMany(Tag::class);

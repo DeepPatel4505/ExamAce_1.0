@@ -12,5 +12,13 @@
     <p><strong>Vacancies:</strong> {{ $job->vacancies }}</p>
     <p><strong>Application Start Date:</strong> {{ $job->application_start_date->format('d M Y') }}</p>
     <p><strong>Application End Date:</strong> {{ $job->application_end_date->format('d M Y') }}</p>
+
+
+    <div class="tags-container">
+    @foreach ($job->tags as $tag)
+        <span class="tag-badge">{{ $tag->name }}</span>
+    @endforeach
+</div>
+
 </div>
 @endsection

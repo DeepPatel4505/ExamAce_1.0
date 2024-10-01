@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Application</title>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
     <link href="{{ asset('css/jobs.css') }}" rel="stylesheet">

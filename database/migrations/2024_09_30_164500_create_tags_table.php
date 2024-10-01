@@ -30,7 +30,7 @@ return new class extends Migration
         {
             $table->id();
             $table->foreignId('tag_id')->constrained()->onDelete('cascade');
-            $table->foreignId('job_id')->constrained()->onDelete('cascade');
+            $table->foreignId('job_id')->constrained("job_listing")->onDelete('cascade');
             $table->timestamps();
         });
           

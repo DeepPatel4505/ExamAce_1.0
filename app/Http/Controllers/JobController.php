@@ -24,12 +24,14 @@ class JobController extends Controller
         // Apply pagination and sorting
         $jobs = $jobs->orderBy('created_at', 'desc')->paginate(10);
 
+
         return view('jobs.index', compact('jobs'));
     }
 
     public function show($id)
     {
-        $job = Job::findOrFail($id);
+        $job = Job::with('tags')->findOrFail($id); 
+        //dd($job->tags);
         return view('jobs.show', compact('job'));
     }
 }

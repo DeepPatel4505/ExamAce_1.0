@@ -12,10 +12,14 @@
 
 
     <div class="tags-container">
-    @foreach ($exam->tags as $tag)
-        <span class="tag-badge">{{ $tag->name }}</span>
-    @endforeach
-</div>
+        @foreach ($exam->tags as $tag)
+        <span class="tag-badge">
+            <a href="{{ route('tags.show', $tag) }}" class="tag-link">
+                {{ $tag->name }}
+            </a>
+        </span>
+        @endforeach
+    </div>
 
 </div>
 @endsection

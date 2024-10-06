@@ -2,7 +2,7 @@
     <div class="quick-links">
         <h5>Quick Links</h5>
         <ul>
-            <li><a>GPSC</a></li>
+            <!-- <li><a>GPSC</a></li>
             <li><a>UPSC</a></li>
             <li><a>SSC</a></li>
             <li><a>GPSSB</a></li>
@@ -19,7 +19,11 @@
             <li><a>Government Jobs</a></li>
             <li><a>Jobs in Private Sector</a></li>
             <li><a>Supervisor Instructor Job</a></li>
-            <li><a>TET/TAT/HTAT</a></li>
+            <li><a>TET/TAT/HTAT</a></li> -->
+
+            @foreach($tags as $tag)
+            <li><a href="{{ url('/tags/' . $tag->id) }}">{{ $tag->name }}</a></li>
+            @endforeach
         </ul>
     </div>
     <div class="quick-links">

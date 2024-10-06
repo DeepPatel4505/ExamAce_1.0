@@ -13,7 +13,7 @@
     </form>
 </div>
 
-<div class="job-listings">
+<div class="job-listings" >
 @foreach ($jobs as $job)
     <div class="job-item">
         <h2>{{ $job->title }}</h2>

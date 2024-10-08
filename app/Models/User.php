@@ -3,11 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable; 
+use Illuminate\Notifications\Notifiable;
 
-class User extends Model
+class User extends Authenticatable 
 {
-    use HasFactory;
+    use HasFactory, Notifiable; // Use Notifiable trait for password reset notifications, etc.
 
     protected $fillable = [
         'username',
@@ -21,7 +22,12 @@ class User extends Model
     ];
 
     protected $casts = [
-        'preference' => 'array', // Cast 'preference' field as array
+        'preference' => 'array', 
+    ];
+
+    protected $hidden = [
+        'password', 
+        'remember_token', 
     ];
 
     public function tags()
@@ -29,3 +35,4 @@ class User extends Model
         return $this->belongsToMany(Tag::class);
     }
 }
+

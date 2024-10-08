@@ -10,6 +10,10 @@ use App\Models\Exam;
 use App\Models\Job;
 use App\Models\Result;
 use App\Models\Tag;
+use App\Http\Controllers\ProfileController;
+
+
+
 
 Route::get('/', function () {
 
@@ -24,7 +28,17 @@ Route::get('/', function () {
 });
 
 
-Route::resource('users', UserController::class);
+//Route::resource('users', UserController::class);
+
+//login
+Route::get('login', [UserController::class, 'showLoginForm'])->name('login');
+Route::post('login', [UserController::class, 'login']);
+Route::post('logout', [UserController::class, 'logout'])->name('logout');
+
+//register
+Route::get('register', [UserController::class, 'showRegistrationForm'])->name('register');
+Route::post('register', [UserController::class, 'register']);
+
 
 Route::get('/jobs', [JobController::class, 'index'])->name('jobs.index');
 Route::get('/jobs/{id}', [JobController::class, 'show'])->name('jobs.show');
@@ -43,3 +57,9 @@ Route::get('/exams/{id}', [examController::class, 'show'])->name('exams.show');
 Route::get('/tags', [tagController::class, 'index'])->name('tags.index');
 Route::get('/tags/search', [TagController::class, 'search'])->name('tags.search');
 Route::get('/tags/{tag}', [tagController::class, 'show'])->name('tags.show');
+
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/profile', [ProfileController::class,'index']);
+});

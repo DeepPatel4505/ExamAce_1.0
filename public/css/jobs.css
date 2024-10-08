@@ -1,5 +1,3 @@
-
-
 /* Job Search Form */
 .job-search {
     background: #f4f4f9;
@@ -83,10 +81,11 @@
     width: 15px;
     height: 15px;
     border-radius: 50%;
-    background-color: green; /* Change color based on job status */
+    background-color: green;
+    /* Change color based on job status */
 }
 
-.job-item > a {
+.job-item>a {
     font-size: 1vw;
     padding: 10px 0px;
     /* background: #007bff; */
@@ -96,7 +95,8 @@
     cursor: pointer;
 
 }
-.job-item > a:hover{
+
+.job-item>a:hover {
     text-decoration: underline;
 }
 
@@ -116,7 +116,8 @@
     padding: 20px 0;
 }
 
-.pagination a, .pagination span {
+.pagination a,
+.pagination span {
     color: #007bff;
     padding: 10px 15px;
     border: 1px solid #ddd;
@@ -126,7 +127,8 @@
     transition: background-color 0.3s ease;
 }
 
-.pagination a:hover, .pagination .active {
+.pagination a:hover,
+.pagination .active {
     cursor: pointer;
     background-color: #007bff;
     color: #fff;
@@ -181,13 +183,7 @@
     color: #fa5252;
 }
 
-Add subtle hover effect
-.job-details p:hover {
-    background-color: #f8f9fa;
-    padding: 5px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
+
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -236,25 +232,219 @@ Add subtle hover effect
 
 .tags-container {
     display: flex;
-    flex-wrap: wrap; /* Allows tags to wrap if they don't fit in one line */
-    gap: 8px; /* Adds space between the tags */
+    flex-wrap: wrap;
+    /* Allows tags to wrap if they don't fit in one line */
+    gap: 8px;
+    /* Adds space between the tags */
     margin-top: 10px;
 }
 
 .tag-badge {
-    background-color: #f3f4f6; /* Light background color */
-    border: 1px solid #d1d5db; /* Light border to give definition */
-    border-radius: 20px; /* Rounded corners for the badges */
-    color: #111827; /* Dark text color */
+    background-color: #f3f4f6;
+    /* Light background color */
+    border: 1px solid #d1d5db;
+    /* Light border to give definition */
+    border-radius: 20px;
+    /* Rounded corners for the badges */
+    color: #111827;
+    /* Dark text color */
     font-size: 14px;
-    padding: 6px 12px; /* Padding to create a pill-like shape */
+    padding: 6px 12px;
+    /* Padding to create a pill-like shape */
     display: inline-block;
-    white-space: nowrap; /* Prevents the tag text from wrapping */
+    white-space: nowrap;
+    /* Prevents the tag text from wrapping */
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .tag-badge:hover {
-    background-color: #007bff; /* Changes background color on hover */
-    color: #ffffff; /* Changes text color on hover */
-    cursor: pointer; /* Adds a pointer cursor */
+    background-color: #007bff;
+    /* Changes background color on hover */
+    color: #ffffff;
+    /* Changes text color on hover */
+    cursor: pointer;
+    /* Adds a pointer cursor */
+}
+
+/* Admin options */
+
+.admin-options {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.edit-btn .edit-link,
+.delete-link {
+    background-color: #007bff; /* Blue color for Edit button */
+    color: #ffffff; /* White text */
+    width: 100px; /* Set a fixed width for both buttons */
+    text-align: center;
+    padding: 10px; /* Uniform padding */
+    border: none;
+    border-radius: 5px;
+    text-decoration: none; /* Removes underline from the link */
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-size: 16px; /* Uniform font size */
+    display: flex; /* Aligns icon and text */
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically */
+}
+
+.edit-btn .edit-link:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.delete-link {
+    background-color: #dc3545; /* Red color */
+    width: 100px; /* Ensure the same width as the edit button */
+}
+
+.delete-link:hover {
+    background-color: #c82333; /* Darker red on hover */
+}
+
+/* Job Details Container */
+.job-details {
+    background-color: #fff; /* White background for the job details */
+    padding: 30px; /* Padding inside the container */
+    margin: 20px auto; /* Center the container */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    max-width: 800px; /* Maximum width for the container */
+}
+
+/* Job Details Header */
+.job-details h1 {
+    font-size: 2rem; /* Font size for the title */
+    color: #1c1c8c; /* Color for the title */
+    margin-bottom: 20px; /* Space below the title */
+    text-transform: capitalize; /* Capitalize the title */
+    border-bottom: 2px solid #f0f0f0; /* Underline effect */
+    padding-bottom: 10px; /* Space below the underline */
+}
+
+/* Form Group */
+.form-group {
+    margin-bottom: 20px; /* Space between form groups */
+}
+
+/* Labels */
+.form-group label {
+    font-weight: bold; /* Bold text for labels */
+    display: block; /* Ensures label takes full width */
+    margin-bottom: 8px; /* Space between label and input */
+}
+
+/* Input Fields */
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input[type="date"],
+.form-group textarea {
+    width: 100%; /* Full width */
+    padding: 10px; /* Padding inside inputs */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 1rem; /* Font size */
+}
+
+/* Textarea Specific Styling */
+.form-group textarea {
+    height: 100px; /* Set a height for the textarea */
+    resize: vertical; /* Allow vertical resizing only */
+}
+
+/* Tags Section */
+.tags-container {
+    display: flex; /* Flexbox for aligning tags */
+    flex-wrap: wrap; /* Allow wrapping of tags */
+    gap: 10px; /* Space between tags */
+    margin-top: 10px; /* Space above tags section */
+}
+
+/* Tag Badge */
+.tag-badge {
+    background-color: #f3f4f6; /* Light background for tags */
+    border: 1px solid #d1d5db; /* Light border */
+    border-radius: 20px; /* Rounded corners */
+    color: #111827; /* Dark text color */
+    font-size: 14px; /* Font size for tags */
+    padding: 6px 12px; /* Padding for tag appearance */
+    display: inline-block; /* Tag display */
+    white-space: nowrap; /* Prevent text from wrapping */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+/* Tag Badge Hover Effect */
+.tag-badge:hover {
+    background-color: #007bff; /* Change background on hover */
+    color: #ffffff; /* Change text color on hover */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+/* Admin Options */
+.admin-options {
+    display: flex; /* Flexbox for admin options */
+    justify-content: flex-end; /* Align to the right */
+    margin-top: 20px; /* Space above admin options */
+}
+
+/* Update Job Button */
+.edit-link {
+    background-color: #007bff; /* Blue background for button */
+    color: #ffffff; /* White text */
+    padding: 10px 20px; /* Padding for button */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor */
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+/* Update Job Button Hover Effect */
+.edit-link:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Back Button Styling */
+.back-button {
+    display: inline-block; /* Inline block for button */
+    margin-bottom: 20px; /* Space below button */
+    font-size: 1rem; /* Font size for button */
+    color: #007bff; /* Text color */
+    background-color: #fff; /* White background */
+    border: 2px solid #007bff; /* Blue border */
+    padding: 10px 20px; /* Padding for button */
+    border-radius: 8px; /* Rounded corners */
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transition effects */
+}
+
+.back-button:hover {
+    background-color: #007bff; /* Blue background on hover */
+    color: #fff; /* White text on hover */
+}
+
+/* Back Button Icon */
+.back-button:before {
+    content: '← '; /* Back arrow before text */
+    font-weight: bold; /* Bold arrow */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .job-details {
+        padding: 20px; /* Reduce padding on smaller screens */
+        margin: 15px; /* Adjust margin on smaller screens */
+    }
+
+    .job-details h1 {
+        font-size: 1.75rem; /* Reduce font size on smaller screens */
+    }
+    
+    .job-details p {
+        font-size: 1rem; /* Adjust paragraph font size */
+    }
 }

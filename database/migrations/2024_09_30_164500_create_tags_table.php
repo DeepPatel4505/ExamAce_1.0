@@ -16,43 +16,40 @@ return new class extends Migration
             $table->string("name");
             $table->timestamps();
         });
-        
-        Schema::create('tag_user',function (Blueprint $table)
-        {
+
+        Schema::create('tag_user', function (Blueprint $table) {
             $table->id();
             $table->foreignId('tag_id')->constrained()->onDelete('cascade');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
 
-          
-        Schema::create('job_tag',function (Blueprint $table)
-        {
+
+        Schema::create('job_tag', function (Blueprint $table) {
             $table->id();
             $table->foreignId('tag_id')->constrained()->onDelete('cascade');
-            $table->foreignId('job_id')->constrained("job_listing")->onDelete('cascade');
+            $table->foreignId('job_id')->constrained('job_listing')->onDelete('cascade');
             $table->timestamps();
+            $table->unique(['tag_id', 'job_id']); // Prevent duplicate tag-job combinations
         });
-          
 
-          
-        Schema::create('result_tag',function (Blueprint $table)
-        {
+
+
+
+        Schema::create('result_tag', function (Blueprint $table) {
             $table->id();
             $table->foreignId('tag_id')->constrained()->onDelete('cascade');
             $table->foreignId('result_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
 
-          
-        Schema::create('exam_tag',function (Blueprint $table)
-        {
+
+        Schema::create('exam_tag', function (Blueprint $table) {
             $table->id();
             $table->foreignId('tag_id')->constrained()->onDelete('cascade');
             $table->foreignId('exam_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
-
     }
 
     /**

@@ -28,6 +28,11 @@ Route::resource('users', UserController::class);
 
 Route::get('/jobs', [JobController::class, 'index'])->name('jobs.index');
 Route::get('/jobs/{id}', [JobController::class, 'show'])->name('jobs.show');
+Route::get('/jobs/{id}/edit', [JobController::class, 'edit'])->name('jobs.edit');
+
+Route::put('/jobs/{job}', [JobController::class, 'update'])->name('jobs.update');
+
+Route::delete('/jobs/{id}', [JobController::class, 'destroy'])->name('jobs.destroy');
 
 Route::get('/results', [resultController::class, 'index'])->name('results.index');
 Route::get('/results/{id}', [resultController::class, 'show'])->name('results.show');

@@ -19,7 +19,7 @@ class UserController extends Controller
         return view('users.create');
     }
 
-    public function store(Request $request)
+public function store(Request $request)
 {
     // Validate the input first
     $request->validate([

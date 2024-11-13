@@ -19,7 +19,7 @@ class JobFactory extends Factory
             'organization' => $this->faker->company(),
             'job_type' => $this->faker->randomElement(['Central_Govt', 'State_Govt']),
             'location' => $this->faker->city(),
-            'eligibility' => $this->faker->sentence(),
+            'eligibility' => $this->faker->randomElement(['10th', '12th', 'Graduate', 'Post-Graduate']),
             'vacancies' => $this->faker->numberBetween(1, 100),
             'application_start_date' => $this->faker->date(),
             'application_end_date' => $this->faker->date(),

@@ -11,6 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
+        // Modify the 'users' table schema
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('username');
@@ -21,6 +22,7 @@ return new class extends Migration
             $table->integer('age');
             $table->json('preference')->nullable();
             $table->string('qualification');
+            $table->boolean('is_admin')->default(false); 
             $table->timestamps();
         });
 

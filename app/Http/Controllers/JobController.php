@@ -10,14 +10,16 @@ class JobController extends Controller
     public function index(Request $request)
     {
         $jobs = Job::query();
-
+        $userQualification = auth()->user()? auth()->user()->qualification : null;
+        
+        // dd($userQualification);
         // Apply filters
         if ($request->filled('search')) {
             $jobs->where('title', 'like', '%' . $request->search . '%');
         }
 
-        if ($request->filled('job_type')) {
-            $jobs->where('job_type', $request->job_type);
+        if (auth()->user() && $request->filled('job_type')) {
+            $jobs->where('eligibility', $userQualification);
         }
 
         // Apply pagination and sorting

@@ -33,7 +33,7 @@ class UserFactory extends Factory
             'age' => fake()->numberBetween(18, 65), // Or use an appropriate range
             // Correct array generation for job titles
             'preference' => fake()->words(2), // Or fake()->words(2) for a random array of words
-            'qualification' => fake()->jobTitle(),
+            'qualification' => $this->faker->randomElement(['10th', '12th', 'Graduate', 'Post-Graduate']),
         ];
     }
 

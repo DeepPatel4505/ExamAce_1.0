@@ -89,6 +89,8 @@
             @if(Auth::check())
             <p><strong>Name:</strong> {{ Auth::user()->username }}</p>
             <p><strong>Email:</strong> {{ Auth::user()->email }}</p>
+            <p><strong>Highest qualification:</strong> {{ Auth::user()->qualification }}</p>
+            
             @else
             <p>Please log in to view your profile.</p>
             @endif

@@ -6,8 +6,7 @@
         <input type="text" name="search" placeholder="Search jobs..." value="{{ request()->search }}">
         <select name="job_type">
             <option value="">All Types</option>
-            <option value="Central_Govt" {{ request()->job_type == 'Central_Govt' ? 'selected' : '' }}>Central Govt</option>
-            <option value="State_Govt" {{ request()->job_type == 'State_Govt' ? 'selected' : '' }}>State Govt</option>
+            <option value="Eligible_Jobs" {{ request()->job_type == 'Eligible_Jobs' ? 'selected' : '' }}>Eligible Jobs</option>
         </select>
         <button type="submit">Search</button>
     </form>

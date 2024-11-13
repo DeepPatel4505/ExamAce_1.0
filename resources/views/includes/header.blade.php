@@ -27,7 +27,9 @@
         </div>
 
         <div class="navbar-user-options">
-            @if(Auth::check())
+            @if(Auth::check() && Auth::user()->isAdmin( ))
+            <a href="{{ url('/admin') }}" class="user-button">Dashboard</a>
+            @elseif(Auth::check())
             <a href="{{ url('/profile') }}" class="user-button">Profile</a>
             @else
             <a href="{{ url('/login') }}" class="user-button">Login</a>

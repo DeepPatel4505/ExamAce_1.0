@@ -17,7 +17,7 @@ class JobFactory extends Factory
         return [
             'title' => $this->faker->jobTitle(),
             'organization' => $this->faker->company(),
-            'job_type' => $this->faker->randomElement(['Central_Govt', 'State_Govt']),
+            'job_type' => $this->faker->randomElement(['Government', 'Private']),
             'location' => $this->faker->city(),
             'eligibility' => $this->faker->randomElement(['10th', '12th', 'Graduate', 'Post-Graduate']),
             'vacancies' => $this->faker->numberBetween(1, 100),

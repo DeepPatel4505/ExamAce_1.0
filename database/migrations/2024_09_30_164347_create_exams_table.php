@@ -12,14 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('exams', function (Blueprint $table) {
-            $table->id();  
-            $table->string('name'); 
-            $table->text('description')->nullable(); 
-            $table->date('exam_date'); 
-            $table->string('qualification');  
-            $table->timestamps();  
+            $table->id();
+            $table->string('name');
+            $table->text('description')->nullable();
+            $table->date('exam_date');
+            // Change qualification to enum (optional)
+            $table->enum('qualification', ['10th', '12th', 'Graduate', 'Post-Graduate']);
+            $table->timestamps();
         });
     }
+    
 
     /**
      * Reverse the migrations.

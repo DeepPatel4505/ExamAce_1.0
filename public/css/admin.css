@@ -230,21 +230,55 @@ table td {
     color: #555;
 }
 
-/* Delete Button in Table */
-table td form button {
-    padding: 8px 15px;
+/* Align the actions column to the right */
+table td:last-child {
+    text-align: center;
+}
+
+table th:last-child {
+    text-align: center;
+}
+
+/* Edit and Delete Button Styling */
+table td .btn {
+    padding: 10px 20px; /* Same size for both buttons */
     font-size: 0.9rem;
-    color: #fff;
-    background-color: #e74c3c;
-    border: none;
     border-radius: 5px;
     cursor: pointer;
+    text-align: center;
+    display: inline-block;
+    width: auto; /* Ensure auto width for buttons */
+    margin-left: 5px; /* Space between buttons */
     transition: background-color 0.3s;
 }
 
-table td form button:hover {
+/* Edit Button Styling */
+table td .btn-warning {
+    background-color: #f39c12;
+    color: #fff;
+}
+
+table td .btn-warning:hover {
+    background-color: #e67e22;
+}
+
+/* Delete Button Styling */
+.btn-danger {
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+}
+
+.btn-danger:hover {
     background-color: #c0392b;
 }
+
+/* Hover Effects */
+table td .btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
 
 /* Pagination */
 .pagination {
@@ -313,9 +347,11 @@ table td form button:hover {
 }
 
 
+
 /* Additional Styling for Exam Search Form */
 .search-form-container {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     gap: 15px;
     background-color: #f7f7f7;
@@ -353,7 +389,7 @@ table td form button:hover {
     outline: none;
 }
 
-.search-form-container .btn {
+.search-form-container .btn,.btn-add {
     padding: 10px 20px;
     background-color: #2980b9;
     color: #fff;
@@ -363,6 +399,10 @@ table td form button:hover {
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s;
+}
+
+.btn-add{
+    background: rgb(245, 70, 70);
 }
 
 .search-form-container .btn:hover {
@@ -379,4 +419,9 @@ table td form button:hover {
     .search-form-container .btn {
         width: 100%;
     }
+}
+
+
+.admin-content > .container > h1 {
+    size: 2rem;
 }

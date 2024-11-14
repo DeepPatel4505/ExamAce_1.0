@@ -1,15 +1,21 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="container">
+<div class="dashboard-header">
     <h1>Manage Results</h1>
+</div>
 
+<div class="container">
     <!-- Search Form -->
     <form action="{{ route('admin.results.index') }}" method="GET" class="search-form-container">
-    <input type="text" name="search" placeholder="Search exams" class="form-control" value="{{ $search }}">
-    <button type="submit" class="btn btn-primary">Search</button>
-</form>
-
+        <div class="left">
+            <a href="{{ route('admin.results.create') }}" class="btn-add">+ Add Result</a>
+        </div>
+        <div class="right">
+            <input type="text" name="search" placeholder="Search exams" class="form-control" value="{{ $search }}">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+    </form>
 
     <!-- Results Table -->
     <table class="table table-bordered">
@@ -25,19 +31,16 @@
             <tr>
                 <td>{{ $result->name }}</td>
                 <td>{{ $result->release_date }}</td>
-                <td>
-                    <form action="{{ route('admin.results.edit', $result->id) }}" method="GET" style="display:inline;">
-                        @csrf
-                        @method('PUT')
-                        <button type="submit" class="btn btn-warning">Edit</button>
-                    </form>
+                <td class="text-right">
+                    <!-- Edit Button -->
+                    <a href="{{ route('admin.results.edit', $result->id) }}" class="btn btn-warning">Edit</a>
 
+                    <!-- Delete Button (inside form) -->
                     <form action="{{ route('admin.results.destroy', $result->id) }}" method="POST" style="display:inline;">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this result?')">Delete</button>
                     </form>
-
                 </td>
             </tr>
             @endforeach

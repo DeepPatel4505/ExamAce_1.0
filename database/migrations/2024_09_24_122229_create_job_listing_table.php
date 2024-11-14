@@ -13,7 +13,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('organization');
-            $table->enum('job_type', ['Central_Govt', 'State_Govt']);
+            $table->enum('job_type', ['Government', 'Private']);
             $table->string('location');
             $table->text('eligibility');
             $table->integer('vacancies');

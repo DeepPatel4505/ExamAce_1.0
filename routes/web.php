@@ -10,15 +10,15 @@ use App\Models\Exam;
 use App\Models\Job;
 use App\Models\Result;
 use App\Models\Tag;
+use App\Models\User;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminDashboardController;
+use App\Notifications\NewJobNotification;
 
 
 
 
 Route::get('/', function () {
-
-
     $jobs = Job::orderBy('created_at', 'desc')->take(10)->get();
     $exams = Exam::orderBy('created_at', 'desc')->take(10)->get();
     $results = Result::orderBy('created_at', 'desc')->take(10)->get();
@@ -62,8 +62,28 @@ Route::get('/tags/{tag}', [tagController::class, 'show'])->name('tags.show');
 
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/profile', [ProfileController::class, 'index']);
+    Route::get('/profile', [ProfileController::class, 'index'])->name('user.profile');
 });
+
+
+// Mail testing
+Route::get('/test/mail/{id}', function($id) {
+    $user = User::find($id); // Find the user by ID
+
+    // Job data to be passed to the notification
+    $jobData = [
+        'title' => 'Software Engineer',
+        'description' => 'An exciting opportunity to work with a dynamic team.',
+        'location' => 'Remote',
+        'id' => 1, // Example job ID
+    ];
+
+    // Send the notification
+    $user->notify(new NewJobNotification($jobData,$user));
+
+    return redirect()->route('user.profile'); // Redirect back to profile
+})->name('test.mail');
+
 
 
 

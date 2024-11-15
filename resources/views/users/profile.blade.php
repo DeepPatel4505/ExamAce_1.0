@@ -96,6 +96,12 @@
             @endif
         </div>
     </div>
+
+    <!-- <div>
+        <form action="{{route('test.mail',Auth::user()->id)}}" method="get">
+            <button type="submit">Test</button>
+        </form>
+    </div> -->
 </body>
 
 </html>

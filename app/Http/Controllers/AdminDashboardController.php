@@ -2,6 +2,11 @@
 
 namespace App\Http\Controllers;
 
+
+use Illuminate\Support\Facades\Notification;
+use App\Notifications\NewJobNotification;
+use App\Notifications\NewExamNotification;
+use App\Notifications\NewResultNotification;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Job;
@@ -19,6 +24,37 @@ class AdminDashboardController extends Controller
         $resultsCount = Result::count();
 
         return view('admin.general', compact('usersCount', 'openJobsCount', 'examsCount', 'resultsCount'));
+    }
+
+
+    public function getEligibleUsers($jobEligibility)
+    {
+        $eligibleUsers = collect();
+    
+        // Determine eligible users based on job's qualification requirement
+        switch ($jobEligibility) {
+            case '10th':
+                // If the job requires 10th, all users with 10th qualification are eligible
+                $eligibleUsers = User::where('qualification', '10th')->get();
+                break;
+    
+            case '12th':
+                // If the job requires 12th, users with 12th, Graduate, and Post-Graduate qualifications are eligible
+                $eligibleUsers = User::whereIn('qualification', ['12th', 'Graduate', 'Post-Graduate'])->get();
+                break;
+    
+            case 'Graduate':
+                // If the job requires Graduate, users with Graduate and Post-Graduate qualifications are eligible
+                $eligibleUsers = User::whereIn('qualification', ['Graduate', 'Post-Graduate'])->get();
+                break;
+    
+            case 'Post-Graduate':
+                // If the job requires Post-Graduate, all users with Post-Graduate qualifications are eligible
+                $eligibleUsers = User::where('qualification', 'Post-Graduate')->get();
+                break;
+        }
+    
+        return $eligibleUsers;
     }
 
     // Users
@@ -104,10 +140,16 @@ class AdminDashboardController extends Controller
             ]);
 
             // Create the new Job entry
-            Job::create($validatedData);
+            $job = Job::create($validatedData);
+
+            // Assuming `getEligibleUsers` is a method that retrieves users based on eligibility
+            $eligibleUsers = $this->getEligibleUsers($validatedData['eligibility']);
+
+            // Send the notification to all eligible users
+            Notification::send($eligibleUsers, new NewJobNotification($job));
 
             // Redirect with success message
-            return redirect()->route('admin.jobs.index')->with('success', 'Job Created successfully');
+            return redirect()->route('admin.jobs.index')->with('success', 'Job Created successfully and notifications sent to all eligible users');
         }
 
         return view('admin.job-form')->with('error', 'Job Creation Error');
@@ -199,7 +241,13 @@ class AdminDashboardController extends Controller
             ]);
 
             // Create the new Exam entry
-            Exam::create($validatedData);
+            $exam = Exam::create($validatedData);
+
+            // Assuming `getEligibleUsers` is a method that retrieves users based on eligibility
+            $eligibleUsers = $this->getEligibleUsers($validatedData['qualification']);
+
+            // Send the notification to all eligible users
+            Notification::send($eligibleUsers, new NewExamNotification($exam));
 
             // Redirect with success message
             return redirect()->route('admin.exams.index')->with('success', 'Exam added successfully');
@@ -285,12 +333,18 @@ class AdminDashboardController extends Controller
             // Validate the incoming data
             $validatedData = $request->validate([
                 'name' => 'required|string',
-                'result_link' => 'required|url',
+                'result_link' => 'required',
                 'release_date' => 'required|date',
             ]);
 
             // Create the new Result entry
-            Result::create($validatedData);
+            $result = Result::create($validatedData);
+
+            // Assuming `getEligibleUsers` is a method that retrieves users based on eligibility
+            
+
+            // Send the notification to all eligible users
+            Notification::send(User::all(), new NewResultNotification($result));
 
             // Redirect with success message
             return redirect()->route('admin.results.index')->with('success', 'Result added successfully');

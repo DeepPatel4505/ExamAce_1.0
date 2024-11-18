@@ -7,7 +7,8 @@
         <div class="content">
             {{-- Pass the $jobs variable to the job listing component --}}
             @include("includes.latestJoblisting", ['jobs' => $jobs])
-            @include("includes.latestJoblisting", ['jobs' => $jobs])
+            @include("includes.latestExams", ['exams' => $exams])
+            @include("includes.latestResults", ['results' => $results])
         </div>
 
     </div>

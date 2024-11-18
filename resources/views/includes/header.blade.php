@@ -11,8 +11,6 @@
         <div class="navbar-list" id="navbar-list">
             <ul>
                 <li><a href="{{ url('/') }}">Home</a></li>
-                <li><a href="{{ url('/about') }}">About Us</a></li>
-                <li><a href="{{ url('/contact') }}">Contact Us</a></li>
                 
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle">Menu </span></a>
@@ -22,6 +20,8 @@
                         <li><a href="{{ url('/results') }}">Results</a></li>
                     </ul>
                 </li>
+                <li><a href="{{ url('/about') }}">About Us</a></li>
+                <li><a href="{{ url('/contact') }}">Contact Us</a></li>
                 <li><a href="{{ url('/tags') }}">Search</a></li>
             </ul>
         </div>

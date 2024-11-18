@@ -12,7 +12,11 @@ class Result extends Model
         "name",
         "result_link",
         "release_date",
-        ];
+    ];
+    protected $casts = [
+        'release_date' => 'datetime', // Cast the release_date to a Carbon instance
+    ];
+
 
     public function tags()
     {

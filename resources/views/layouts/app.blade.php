@@ -20,6 +20,7 @@
     @yield("content")
     </div>
     <script src="{{ asset('js/index.js') }}"></script>
+@include("includes.footer")
 </body>
 
 </html>
